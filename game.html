@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rezi's game!</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://static.codehs.com/gulp/8e49460a6d883c3767b57bfed05b3578c826f0a8/chs-js-lib/chs.js"></script>
+
+
+<style>
+canvas {
+border: 1px solid black;
+display: inline-block;
+vertical-align: top;
+}
+
+pre {
+border: 1px solid black;
+display: inline-block;
+width: 400px;
+height: 500px;
+background-color: #F5F5F5;
+}
+</style>
+
+</head>
+
+<body>
+<h1>Try to win!</h1>
+<hr/>
+
+<canvas
+width="400"
+height="500"
+class="codehs-editor-canvas"></canvas>
+<pre id="console"></pre>
+
+<script>
+window.onload = function() {
+
+var spaceship;
+var halfx = getWidth()/2;
+var halfy = getHeight()/2;
+var SHIP_WIDTH = 40;
+var SHIP_HEIGHT = 30;
+var i = 0;
+var score = 0;
+var monstrebi = 0;
+var sc;
+var which;
+var raod;
+var tit;
+var titl;
+var win;
+var lose;
+
+function start(){
+
+title();
+
+spacesheep();
+
+mouseMoveMethod(ship);
+
+add(spaceship);
+
+mouseClickMethod(Randomcircles);
+}
+
+function title(){
+
+tit = new Text("You must click emojis to win");
+tit.setColor(Color.cyan);
+tit.setPosition(halfx-170, halfy-100);
+add(tit);
+
+titl = new Text("Click anywhere to start");
+titl.setColor(Color.cyan);
+titl.setPosition(halfx-140, halfy);
+add(titl);
+}
+
+function qula(){
+
+remove(sc);
+sc = new Text("20/"+score);
+sc.setPosition(0, getHeight());
+add(sc);
+
+remove(raod);
+raod = new Text("score: 100/"+monstrebi);
+raod.setPosition(getWidth()-161, getHeight());
+add(raod);
+
+if(score == 20){
+
+stopTimer(circles);
+lose = new WebImage("https://ih1.redbubble.net/image.334203166.0010/flat,750x1000,075,f.jpg");
+lose.setSize(400, 500);
+lose.setPosition(0, 0);
+add(lose);
+println("Your score is: " + monstrebi);
+}
+
+if(monstrebi >= 100 && score < 20){
+
+stopTimer(circles);
+win = new WebImage("https://previews.123rf.com/images/sukanda26/sukanda261601/sukanda26160100563/51558257-stamp-word-you-win-in-red-over-white-background.jpg");
+win.setSize(400, 400);
+win.setPosition(0, 0);
+add(win);
+}
+}
+function Randomcircles(e){
+
+remove(tit);
+remove (titl);
+
+while(i < 1){
+i++;
+setTimer(circles, 500);
+}
+
+var elem = getElementAt(e.getX(), e.getY());
+
+if(elem == win || elem == lose){
+
+}else if(elem != null){
+score--;
+monstrebi++;
+remove(elem);
+qula();
+}else{
+
+}
+
+}
+
+function circles(){
+
+var width = Randomizer.nextInt(20, 100);
+var xpos = Randomizer.nextInt(0, getWidth()-width);
+var ypos = Randomizer.nextInt(0, halfy+50);
+var which = Randomizer.nextInt(1, 4);
+
+if(which == 1){
+var monster = new WebImage("https://cdn.pixabay.com/photo/2012/04/13/17/50/angry-33059_960_720.png");
+monster.setSize(width, width);
+monster.setPosition(xpos, ypos);
+add(monster);
+}
+
+if(which == 2){
+var monster = new WebImage("https://www.pngrepo.com/png/209074/180/angry-emoji.png");
+monster.setSize(width, width);
+monster.setPosition(xpos, ypos);
+add(monster);
+}
+
+if(which == 3){
+var monster = new WebImage("https://www.emoji.com/wp-content/uploads/filebase/thumbnails/icons/emoji-icon-glossy-00-04-faces-face-role-cyclops-hungry-72dpi-forPersonalUseOnly.png");
+monster.setSize(width, width);
+monster.setPosition(xpos, ypos);
+add(monster);
+}
+
+if(which == 4){
+var monster = new WebImage("https://www.flaticon.com/svg/static/icons/svg/743/743333.svg");
+monster.setSize(width, width);
+monster.setPosition(xpos, ypos);
+add(monster);
+}
+
+score++;
+qula();
+}
+
+//this function creates spaceship.
+function spacesheep(){
+
+spaceship = new WebImage("http://s3.amazonaws.com/gt7sp-prod/decal/08/04/99/4837530173741990408_1.png");
+spaceship.setSize(SHIP_WIDTH, SHIP_HEIGHT);
+spaceship.setPosition(halfx - SHIP_WIDTH/2, getHeight()-2*SHIP_HEIGHT-1);
+}
+
+//this function moves the spaceship.
+function ship(e){
+
+spaceship.setPosition(e.getX(), getHeight()-2*SHIP_HEIGHT-1);
+
+if(e.getX() >= getWidth() - SHIP_WIDTH - 1){
+spaceship.setPosition(getWidth() - SHIP_WIDTH - 1, getHeight()-2*SHIP_HEIGHT-1);
+}
+}
+
+
+if (typeof start === 'function') {
+start();
+}
+};
+</script>
+<hr/>
+</body>
+</html>

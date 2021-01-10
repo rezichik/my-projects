@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Personal Portfolio</title>
+    <style>
+      body{
+        margin: 0;
+        padding: 0;
+      }
+      #navbar{
+        background-color: chartreuse;
+        width: 100%;
+        height: 85px;
+        margin-top: -34px;
+        position: fixed;
+        text-align: center;
+      }
+      ul{
+        list-style-type: none;
+        padding-top: 10px;
+      }
+      li{
+        display: inline;
+      }
+      #navbar ul li a{
+        font-size: 35px;
+        background-color: #33d6ff;
+        color: #ffff99;
+        border: solid;
+        border-radius: 10px;
+        margin-right: 80px;
+        margin-left: 80px;
+        text-decoration: none;
+      }
+      #navbar ul li a:hover{
+        background-color: #0040ff;
+      }
+      #navbar ul li a:active{
+        background-color: #00b300;
+      }
+      #welcome-section{
+        width: 100%;
+        height: 660px;
+        background: linear-gradient(45deg, #ffff4d, #66ff66, #668cff);
+      }
+      h1{
+        padding-top: 300px;
+        text-align: center;
+        font-size: 50px;
+      }
+      .project-tile{
+        text-align: center;
+        color: white;
+        font-size: 40px;
+        padding-top: 60px;
+      }
+      #projects{
+        width: 100%;
+        height: 700px;
+        background-color: #9966ff;
+        margin-top: -33px;
+        padding-top: 20px;
+      }
+      img{
+        height: 260px;
+        width: 220px;
+        border: 5px solid #5cd65c;
+        border-radius: 10%;
+        margin: 90px;
+      }
+      .seeall{
+        text-align: center;
+        font-size: 50px;
+        margin-top: -50px;
+        color: #ff0000;
+        text-decoration: none;
+      }
+      #contact{
+        width: 100%;
+        height: 100px;
+        background-color: #ff4da6;
+        margin-top: -32px;
+      }
+      .phone{
+        font-size: 20px;
+        padding-top: 30px;
+
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="navbar">
+      <ul>
+        <li>
+          <a href="#About">About</a>
+        </li>
+        <li>
+          <a href="#Projects">Projects</a>
+        </li>
+        <li>
+          <a href="#Contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+    <a name="About"></a>
+    <div id="welcome-section">
+      <h1>Hey I am Rezi</h1>
+    </div>
+    <a name="Projects"></a>
+    <div id="projects">
+      <h2 class="project-tile">These are some of my projects</h2>
+      <a href="game.html" target="_blank"><img id="projectf" src="gameing.png" alt="realy good game"/></a>
+      <a href="https://rezichik.github.io/shop-web-page/" target="_blank"><img id="projectf" src="ppap.png" alt="shop web-page"/></a>
+      <a href="https://rezichik.github.io/survey-form/" target="_blank"><img id="projectf" src="form.png" alt="form page"/></a>
+      <a href="https://github.com/rezichik?tab=repositories" target="_blank"><p class="seeall">see all...</p>
+    </div>
+    <div id="contact">
+      <a name="Contact"></a>
+      <p class="phone">contact us: 591 93 94 38;</p>
+    </div>
+
+  </body>
+</html>
